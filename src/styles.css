@@ -20,6 +20,8 @@
 
 @theme inline {
   --font-display: "Baloo 2", system-ui, sans-serif;
+  --font-logo: "Barriecito", cursive;
+  --font-slogan: "Questrial", system-ui, sans-serif;
   --font-sans: "Nunito", system-ui, sans-serif;
   --shadow-brand: 0 10px 30px -12px color-mix(in oklab, var(--primary) 55%, transparent);
   --shadow-card: 0 8px 24px -14px oklch(0.2 0.02 60 / 35%);

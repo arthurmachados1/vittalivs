@@ -208,8 +208,8 @@ function Index() {
   return (
     <div className="min-h-screen bg-background pb-10">
       <header className="bg-primary px-5 pb-8 pt-10 text-center text-primary-foreground rounded-b-[2rem] shadow-brand">
-        <h1 className="font-display text-4xl font-extrabold tracking-tight">VittaLivs</h1>
-        <p className="mt-1 text-base font-medium opacity-95">Saúde que cabe na sua rotina</p>
+        <h1 className="font-logo text-4xl font-extrabold tracking-tight">VittaLivs</h1>
+        <p className="font-slogan mt-1 text-base font-medium opacity-95">Saúde que cabe na sua rotina</p>
       </header>
 
       <main className="mx-auto w-full max-w-md px-5">
