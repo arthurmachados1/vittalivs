@@ -10,33 +10,43 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as InformacoesNutricionaisRouteImport } from './routes/informacoes-nutricionais'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const InformacoesNutricionaisRoute = InformacoesNutricionaisRouteImport.update({
+  id: '/informacoes-nutricionais',
+  path: '/informacoes-nutricionais',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/informacoes-nutricionais': typeof InformacoesNutricionaisRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/informacoes-nutricionais': typeof InformacoesNutricionaisRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/informacoes-nutricionais': typeof InformacoesNutricionaisRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths: '/' | '/informacoes-nutricionais'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to: '/' | '/informacoes-nutricionais'
+  id: '__root__' | '/' | '/informacoes-nutricionais'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  InformacoesNutricionaisRoute: typeof InformacoesNutricionaisRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -48,11 +58,19 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/informacoes-nutricionais': {
+      id: '/informacoes-nutricionais'
+      path: '/informacoes-nutricionais'
+      fullPath: '/informacoes-nutricionais'
+      preLoaderRoute: typeof InformacoesNutricionaisRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  InformacoesNutricionaisRoute: InformacoesNutricionaisRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
