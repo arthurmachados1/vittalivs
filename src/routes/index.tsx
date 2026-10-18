@@ -1,6 +1,6 @@
 import { createFileRoute, Link } from '@tanstack/react-router';
 import { useRef, useState } from 'react';
-import { ArrowDown, ArrowRight, ArrowUpRight, Check, ChevronDown, Clock3, CreditCard, Heart, Leaf, MessageCircle, Minus, Plus, Refrigerator, Smile, Snowflake, Sparkles, Utensils, Wallet } from 'lucide-react';
+import { ArrowDown, ArrowRight, ArrowUpRight, Check, ChevronDown, Clock3, CreditCard, Heart, Leaf, MessageCircle, Minus, Pause, Play, Plus, Refrigerator, Smile, Snowflake, Sparkles, Utensils, Wallet } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { flavorsFor, money, unitPrice, whatsapp, type LineId } from '@/lib/menu';
 import caseirinha from '@/assets/caseirinha.png.asset.json';
@@ -14,6 +14,7 @@ import panquecaB from '@/assets/panqueca-bolonhesa.jpg.asset.json';
 import estrogonofe from '@/assets/estrogonofe.jpg.asset.json';
 import escondidinhoF from '@/assets/escondidinho-frango.jpg.asset.json';
 import escondidinhoC from '@/assets/escondidinho-carne.jpg.asset.json';
+import packaging from '@/assets/vittalivs-embalagens.png.asset.json';
 
 export const Route = createFileRoute('/')({
   head: () => ({ meta: [
@@ -35,18 +36,24 @@ function Happy({ className = '' }: { className?: string }) { return <Smile strok
 function Home() {
   const [active, setActive] = useState<LineId | null>(null);
   const [quantity, setQuantity] = useState(1);
+  const [photoPaused, setPhotoPaused] = useState(false);
   const catalog = useRef<HTMLDivElement>(null);
   const line = lines.find(l => l.id === active);
   function openLine(id: LineId) { setActive(id); requestAnimationFrame(() => catalog.current?.scrollIntoView({ behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'instant' : 'smooth', block: 'start' })); }
   return <div className="site-home">
     <div className="delivery-strip"><span><Leaf size={14} /> Comida de verdade. Rotina mais leve.</span><span>Frete grátis em Vila Velha acima de 5 marmitas <span className="ml-1">:)</span></span></div>
-    <header className="brand-header page-width">
+    <header className="brand-header-band"><div className="brand-header page-width">
       <div className="header-side"><span className="little-label">FEITO COM CARINHO</span><span>Marmitinhas congeladas</span></div>
       <Link to="/" className="brand-lockup" aria-label="VittaLivs início"><span className="font-logo">VittaLivs</span><span className="font-slogan">saúde que cabe na sua rotina</span></Link>
       <Button asChild variant="outline" className="contact-top"><a href={whatsapp('Olá, VittaLivs! Quero saber mais sobre as marmitinhas.')} target="_blank" rel="noreferrer"><MessageCircle /> Vamos conversar <ArrowUpRight /></a></Button>
-    </header>
+    </div></header>
     <nav className="main-nav" aria-label="Navegação principal"><a href="#linhas">Nossas marmitinhas</a><Link to="/informacoes-nutricionais">Informações nutricionais</Link><a href="#cuidados">Cuidados com sua marmita</a><a href="#sobre">Quem somos</a></nav>
     <main>
+      <section className={`packaging-scene ${photoPaused ? 'is-paused' : ''}`} aria-label="Marmitinhas VittaLivs">
+        <img className="packaging-image" src={packaging.url} alt="Marmitinhas com embalagens e etiquetas VittaLivs organizadas lado a lado" fetchPriority="high" />
+        <div className="packaging-stamp"><Happy /><span className="font-slogan">bom apetite!</span></div>
+        <Button className="photo-motion-control" variant="ghost" size="icon" onClick={() => setPhotoPaused(p => !p)} aria-label={photoPaused ? 'Retomar movimento da foto' : 'Pausar movimento da foto'} title={photoPaused ? 'Retomar movimento' : 'Pausar movimento'}>{photoPaused ? <Play /> : <Pause />}</Button>
+      </section>
       <section id="linhas" className="page-width line-section">
         <div className="welcome"><span className="little-label">BEM-VINDO, VITTALOVER</span><Happy className="size-6 text-primary" /></div>
         <div className="section-heading"><h1>Qual é a sua fome de hoje?</h1><p>Três linhas. Oito sabores. Um montão de carinho.</p></div>

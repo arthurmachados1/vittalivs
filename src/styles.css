@@ -183,14 +183,26 @@ html { scroll-behavior: smooth; scroll-padding-top: 25px; }
 .little-label { font-size: 10px; letter-spacing: 1.5px; font-weight: 800; }
 .delivery-strip { background: var(--brand-green); color: var(--on-brand); display:flex; align-items:center; justify-content:space-between; padding: 9px max(40px, calc((100% - 1120px)/2)); gap:20px; font-size: 11px; }
 .delivery-strip > span { display:flex; align-items:center; gap:7px; }
+.brand-header-band { background:var(--brand-orange); color:var(--on-brand); }
 .brand-header { display:flex; align-items:center; justify-content:space-between; min-height:136px; }
-.header-side { width: 245px; display:flex; flex-direction:column; gap:7px; font-size:12px; color: var(--muted-foreground); }
-.brand-lockup { text-align:center; display:flex; flex-direction:column; gap:3px; color:var(--primary); }
+.header-side { width: 245px; display:flex; flex-direction:column; gap:7px; font-size:12px; color: var(--on-brand); }
+.brand-lockup { text-align:center; display:flex; flex-direction:column; gap:3px; color:var(--on-brand); }
 .brand-lockup > span:first-child { font-size:57px; line-height:1; }
-.brand-lockup > span:last-child { font-size:15px; color:var(--brand-ink); }
-.contact-top { min-height:40px; font-size:12px; border-color:var(--border); box-shadow:none; }
+.brand-lockup > span:last-child { font-size:15px; color:var(--on-brand); }
+.contact-top { min-height:40px; font-size:12px; color:var(--on-brand); background:transparent; border-color:color-mix(in oklab,var(--on-brand) 65%,transparent); box-shadow:none; }
+.contact-top:hover { background:var(--on-brand); color:var(--primary); }
 .main-nav { display:flex; justify-content:center; gap:38px; padding:16px 20px; border-block:1px solid var(--border); font-size:12px; font-weight:700; }
 .main-nav a:hover { color:var(--primary); }
+.packaging-scene { position:relative; height:270px; overflow:hidden; isolation:isolate; background:var(--surface-soft); }
+.packaging-image { width:100%; height:100%; object-fit:cover; object-position:50% 48%; animation:packaging-drift 18s ease-in-out infinite alternate; }
+.packaging-stamp { position:absolute; right:max(80px,calc((100% - 1040px)/2)); bottom:24px; width:110px; height:110px; border-radius:50%; background:var(--brand-green); color:var(--on-brand); display:flex; flex-direction:column; align-items:center; justify-content:center; gap:6px; transform:rotate(10deg); animation:stamp-sway 6s ease-in-out infinite alternate; }
+.packaging-stamp svg { width:40px; height:40px; }
+.packaging-stamp span { font-size:14px; }
+.photo-motion-control { position:absolute; bottom:16px; left:max(20px,calc((100% - 1120px)/2)); color:var(--on-brand); background:var(--brand-green); border-radius:50%; }
+.photo-motion-control:hover { color:var(--brand-green); background:var(--on-brand); }
+.is-paused .packaging-image, .is-paused .packaging-stamp { animation-play-state:paused; }
+@keyframes packaging-drift { from { transform:scale(1.08) translateY(-2%); } to { transform:scale(1.13) translateY(2%); } }
+@keyframes stamp-sway { from { transform:rotate(6deg) translateY(0); } to { transform:rotate(14deg) translateY(-8px); } }
 .line-section { padding-top:40px; padding-bottom:27px; }
 .welcome { display:flex; align-items:center; justify-content:center; gap:9px; margin-bottom:14px; }
 .section-heading { text-align:center; }
@@ -313,6 +325,11 @@ html { scroll-behavior: smooth; scroll-padding-top: 25px; }
  .brand-header { min-height:118px; }
  .brand-lockup > span:first-child { font-size:47px; }
  .brand-lockup > span:last-child { font-size:12px; }
+ .packaging-scene { height:200px; }
+ .packaging-image { object-position:50% 46%; }
+ .packaging-stamp { width:84px; height:84px; right:20px; bottom:18px; gap:4px; }
+ .packaging-stamp svg { width:31px; height:31px; }
+ .packaging-stamp span { font-size:12px; }
  .main-nav { justify-content:space-evenly; gap:13px 15px; font-size:10px; padding:13px 18px; }
  .main-nav a { white-space:nowrap; }
  .line-section { padding-top:28px; }
@@ -367,4 +384,4 @@ html { scroll-behavior: smooth; scroll-padding-top: 25px; }
  .footer-main { grid-template-columns:1fr; gap:30px; }
  .footer-bottom { flex-direction:column; gap:12px; }
 }
-@media (prefers-reduced-motion: reduce) { html { scroll-behavior:auto; } .line-tile { transition:none; } }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior:auto; } .line-tile { transition:none; } .packaging-image, .packaging-stamp { animation:none; } .photo-motion-control { display:none; } }
