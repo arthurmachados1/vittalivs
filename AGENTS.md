@@ -13,3 +13,4 @@
 - Preserve the original nutrition data on `/informacoes-nutricionais`; do not derive gram-based nutrient quantities from package volume without validated data.
 - Use uploaded brand and meal imagery through asset pointers; never substitute unrelated or generated meal photos for missing real product photographs.
 - Keep decorative photo motion CSS-based, with a pause control and reduced-motion support, so the storefront stays lightweight and accessible.
+- Standardize uploaded meal photo backgrounds with pixel-preserving masks rather than generative edits, so the original food remains unchanged.
