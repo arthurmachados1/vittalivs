@@ -1,4 +1,6 @@
 # VittaLivs
+- [ ] Corrigir logos das linhas no celular, incluir bandeira Alelo e destacar cuidados em vermelho.
+- [ ] Padronizar fundos das sete fotos enviadas, preservar alimentos e conferir os cardápios.
 - [x] Renovar a página principal com três linhas e cardápios clicáveis.
 - [x] Preservar a tabela nutricional em página própria.
 - [x] Incluir orientações, benefícios, história, pagamentos e WhatsApp.
