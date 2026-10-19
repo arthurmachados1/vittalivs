@@ -41,7 +41,7 @@ type Prato = {
 const PRATOS: Prato[] = [
   {
     nome: "Escondidinho de Carne Moída",
-    porcao: "1 marmita (400 g)",
+    porcao: "1 marmita de 350 mL",
     kcal: 476,
     carboidratos: 30.2,
     acucaresTotais: 2.1,
@@ -55,7 +55,7 @@ const PRATOS: Prato[] = [
   },
   {
     nome: "Macarrão à Bolonhesa",
-    porcao: "1 marmita (400 g)",
+    porcao: "1 marmita de 350 mL",
     kcal: 487,
     carboidratos: 52.5,
     acucaresTotais: 4.3,
@@ -69,7 +69,7 @@ const PRATOS: Prato[] = [
   },
   {
     nome: "Escondidinho de Frango",
-    porcao: "1 marmita (400 g)",
+    porcao: "1 marmita de 350 mL",
     kcal: 435,
     carboidratos: 30.2,
     acucaresTotais: 2.0,
@@ -83,7 +83,7 @@ const PRATOS: Prato[] = [
   },
   {
     nome: "Carne de Panela com Legumes",
-    porcao: "1 marmita (400 g)",
+    porcao: "1 marmita de 350 mL",
     kcal: 518,
     carboidratos: 64.7,
     acucaresTotais: 5.2,
@@ -97,7 +97,7 @@ const PRATOS: Prato[] = [
   },
   {
     nome: "Estrogonofe de Frango",
-    porcao: "1 marmita (400 g)",
+    porcao: "1 marmita de 350 mL",
     kcal: 418,
     carboidratos: 43,
     acucaresTotais: 3.4,
@@ -111,7 +111,7 @@ const PRATOS: Prato[] = [
   },
   {
     nome: "Panqueca à Bolonhesa",
-    porcao: "1 marmita (400 g)",
+    porcao: "1 marmita de 350 mL",
     kcal: 378,
     carboidratos: 28.5,
     acucaresTotais: 3.1,
@@ -125,7 +125,7 @@ const PRATOS: Prato[] = [
   },
   {
     nome: "Panqueca de Frango",
-    porcao: "1 marmita (400 g)",
+    porcao: "1 marmita de 350 mL",
     kcal: 380,
     carboidratos: 38.8,
     acucaresTotais: 3.0,
@@ -139,7 +139,7 @@ const PRATOS: Prato[] = [
   },
   {
     nome: "Frango com Quiabo",
-    porcao: "1 marmita (400 g)",
+    porcao: "1 marmita de 350 mL",
     kcal: 355,
     carboidratos: 51.1,
     acucaresTotais: 2.8,
@@ -216,7 +216,7 @@ function Index() {
       </header>
 
       <main className="mx-auto w-full max-w-md px-5">
-        <p className="mt-8 mb-8 text-center text-sm text-muted-foreground">Valores da tabela original para uma porção de 400 g. Os volumes de 350 mL e 500 mL não equivalem ao peso; os valores não foram recalculados para esses tamanhos.</p>
+        <p className="mt-8 mb-8 text-center text-sm text-muted-foreground">Valores referentes a 1 unidade de marmita de 350 mL. As quantidades variam entre os sabores, sempre com no mínimo 120 g da opção de proteína :)</p>
         <section className="-mt-5 rounded-2xl bg-card p-5 shadow-card">
           <label
             htmlFor="prato"
