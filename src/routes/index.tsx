@@ -43,7 +43,23 @@ function Home() {
   const line = lines.find(l => l.id === active);
   function openLine(id: LineId) { setActive(id); requestAnimationFrame(() => catalog.current?.scrollIntoView({ behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'instant' : 'smooth', block: 'start' })); }
   return <div className="site-home">
-    <div className="delivery-strip"><span><Leaf size={14} /> Comida de verdade. Rotina mais leve.</span><span>Frete grátis em Vila Velha acima de 5 marmitas <span className="ml-1">:)</span></span></div>
+    <div className="delivery-strip">
+      <span className="sr-only">Comida de verdade. Rotina mais leve. Frete grátis em Vila Velha acima de 5 marmitas :)</span>
+      <div className="delivery-track" aria-hidden="true">
+        {[0, 1].map(group => (
+          <div className="delivery-group" key={group}>
+            {Array.from({ length: 3 }).map((_, i) => (
+              <span key={i}>
+                <Leaf size={14} /> Comida de verdade. Rotina mais leve.
+                <span className="delivery-sep">•</span>
+                Frete grátis em Vila Velha acima de 5 marmitas :)
+                <span className="delivery-sep">•</span>
+              </span>
+            ))}
+          </div>
+        ))}
+      </div>
+    </div>
     <header className="brand-header-band"><div className="brand-header page-width">
       <div className="header-side"><span className="little-label">FEITO COM CARINHO</span><span>Marmitinhas congeladas</span></div>
       <Link to="/" className="brand-lockup" aria-label="VittaLivs início"><span className="font-logo">VittaLivs</span><span className="font-slogan">saúde que cabe na sua rotina</span></Link>
