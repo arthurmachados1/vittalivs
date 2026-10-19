@@ -181,8 +181,13 @@ html { scroll-behavior: smooth; scroll-padding-top: 25px; }
 .site-home h3 { font-size: 21px; line-height: 1.25; font-weight: 700; }
 .page-width { width: min(1120px, calc(100% - 80px)); margin-inline: auto; }
 .little-label { font-size: 10px; letter-spacing: 1.5px; font-weight: 800; }
-.delivery-strip { background: var(--brand-green); color: var(--on-brand); display:flex; align-items:center; justify-content:space-between; padding: 9px max(40px, calc((100% - 1120px)/2)); gap:20px; font-size: 11px; }
-.delivery-strip > span { display:flex; align-items:center; gap:7px; }
+.delivery-strip { background: var(--brand-green); color: var(--on-brand); overflow:hidden; padding: 9px 0; font-size: 11px; }
+.delivery-track { display:flex; width:max-content; animation: delivery-scroll 30s linear infinite; }
+.delivery-group { display:flex; align-items:center; white-space:nowrap; }
+.delivery-group > span { display:inline-flex; align-items:center; gap:7px; padding-inline:20px; }
+.delivery-sep { opacity:.5; }
+@keyframes delivery-scroll { to { transform: translateX(-50%); } }
+@media (prefers-reduced-motion: reduce) { .delivery-track { animation:none; } }
 .brand-header-band { background:var(--brand-orange); color:var(--on-brand); }
 .brand-header { display:flex; align-items:center; justify-content:space-between; min-height:136px; }
 .header-side { width: 245px; display:flex; flex-direction:column; gap:7px; font-size:12px; color: var(--on-brand); }
@@ -306,8 +311,7 @@ html { scroll-behavior: smooth; scroll-padding-top: 25px; }
 .footer-bottom { display:flex; justify-content:space-between; gap:20px; border-top:1px solid color-mix(in oklab,var(--on-brand) 20%,transparent); margin-top:35px; padding-top:18px; font-size:10px; opacity:.8; }
 @media (max-width: 900px) {
  .page-width { width:calc(100% - 40px); }
- .delivery-strip { justify-content:center; padding-inline:20px; }
- .delivery-strip > span:first-child, .header-side { display:none; }
+ .header-side { display:none; }
  .brand-header { justify-content:center; position:relative; }
  .contact-top { position:absolute; right:0; width:40px; padding:0; font-size:0; gap:0; }
  .contact-top svg:last-child { display:none; }
