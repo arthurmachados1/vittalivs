@@ -7,6 +7,6 @@
 - [x] Verificar preços, linhas, frete e navegação em telas grandes e pequenas.
 - [x] Deixar o cabeçalho laranja com escrita branca e destacar a foto enviada com movimento suave.
 - [x] Conferir a foto, movimento e cabeçalho em telas grandes e pequenas.
-- [ ] Imagens visíveis no celular
-- [ ] Destacar "O que tem na sua marmitinha?"
-- [ ] Ícone WhatsApp antes do número
+- [x] Imagens visíveis no celular
+- [x] Destacar "O que tem na sua marmitinha?"
+- [x] Ícone WhatsApp antes do número
